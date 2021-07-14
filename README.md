@@ -82,4 +82,4 @@ After installing, you must take out the ISO image from optical disk (like in a r
 10. Now you are ready to use it!!!
 
 # Note
-Take care that this will download all my dotfiles, create my folder, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
+Take care that this will download all my dotfiles, create my folders, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
