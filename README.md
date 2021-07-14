@@ -43,9 +43,9 @@ This is a step by step guide to install Arch Linux in a VirtualBox environment, 
 19. Edit `/etc/hostname` and write the PC name you want it to have.
 20. Edit `/etc/hosts` and write this replacing "pcname" with the name your write on step 19:
 ```
-127.0.0.1	  localhost
-::1		      localhost
-127.0.1.1	  pcname.localdomain	pcname
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    pcname.localdomain    pcname
 ```
 21. Run `passwd` and create a root password.
 22. `useradd -m "yourname"`.
