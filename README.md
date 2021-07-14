@@ -62,3 +62,24 @@ This is a step by step guide to install Arch Linux in a VirtualBox environment, 
   - `pacman -S networkmanager`.
   - `systemctl enable NetworkManager`.
 28. Exit (`exit`) and shutdown (`shutdown now`).
+
+# Take out disk of VirtualBox
+After installing, you must take out the ISO image from optical disk (like in a real computer). Go to machine configuration, select "Storage" tab, select ISO, press Supr key.
+
+# Run config scripts
+1. Run machine. Wait it to open.
+2. Enter your user and password.
+3. I recommended to take out sudo password limit, otherwise you will have to enter it several times during process:
+  - `cd /etc/sudoers.d`.
+  - `sudo EDITOR=nano visudo -f yourname`.
+  - Inside it, write `Defaults timestamp_timeout=(number)`.
+  - Exit file.
+5. Now, download repository cloning from Github `git clone https://github.com/joelermantraut/arch-post-installation-script.git/`.
+6. Enter folder, `cd arch-post-installation-script`.
+7. Run setup, `./setup.sh`.
+8. Wait it to finish.
+9. Reboot.
+10. Now you are ready to use it!!!
+
+# Note
+Take care that this will download all my dotfiles, create my folder, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
