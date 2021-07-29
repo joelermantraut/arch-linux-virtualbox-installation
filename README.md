@@ -83,5 +83,7 @@ After installing, you must take out the ISO image from optical disk (like in a r
 9. Reboot.
 10. Now you are ready to use it!!!
 
-# Note
-Take care that this will download all my dotfiles, create my folders, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
+# Notes
+
+1. After rebooting, you will screen resolution lower than maybe you want. My config files don't define screen resolution, so you have to add `xrandr --output Virtual1 --mode {your desired resolution}` to the .xprofile file.
+2. Take care that this will download all my dotfiles, create my folders, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
