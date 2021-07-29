@@ -73,7 +73,7 @@ After installing, you must take out the ISO image from optical disk (like in a r
 2. Enter your user and password.
 3. I recommended to take out sudo password limit, otherwise you will have to enter it several times during process:
   - `cd /etc/sudoers.d`.
-  - `sudo EDITOR=nano visudo -f yourname`.
+  - `sudo EDITOR=nano visudo -f "yourname"`.
   - Inside it, write `Defaults timestamp_timeout=(number)`.
   - Exit file.
 5. Now, download repository cloning from Github `git clone https://github.com/joelermantraut/arch-post-installation-script.git/`.
