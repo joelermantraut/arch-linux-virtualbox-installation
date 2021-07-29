@@ -1,7 +1,7 @@
 # arch-linux-virtualbox-installation
 This is a step by step guide to install Arch Linux in a VirtualBox environment, using this profile's dotfiles and post-installation script. I use an EFI installation, and this is based in [Arch Linux Installation Guide](https://wiki.archlinux.org/title/installation_guide). 
 
-The same installation method can be used to install Arch Linux in a real machine, only jump Virtual Box steps.
+The same installation method can be used to install Arch Linux in a real machine, only jump VirtualBox steps.
 
 # Configuring VirtualBox
 1. Create a new virtual machine, and define its parameters. For Arch Linux, recommended specs are:
