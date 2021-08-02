@@ -85,5 +85,5 @@ After installing, you must take out the ISO image from optical disk (like in a r
 
 # Notes
 
-1. After rebooting, you will see screen resolution lower than maybe you want it. My config files don't define screen resolution, so you have to add `xrandr --output Virtual1 --mode {your desired resolution}` to the .xprofile file.
+1. After rebooting, you will see screen resolution lower than maybe you want it. My config files don't define screen resolution, so you have to add `xrandr --output {actual output} --mode {your desired resolution} &` to the .xprofile file. To see available output, run `xrandr -q`. In VirtualBox, it usually is "Virtual-1".
 2. Take care that this will download all my dotfiles, create my folders, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
