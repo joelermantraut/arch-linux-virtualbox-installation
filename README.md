@@ -3,7 +3,7 @@ This is a step by step guide to install Arch Linux in a VirtualBox environment, 
 
 The same installation method can be used to install Arch Linux in a real machine, only jump VirtualBox steps.
 
-# Configuring VirtualBox
+## Configuring VirtualBox
 1. Create a new virtual machine, and define its parameters. For Arch Linux, recommended specs are:
     - 1024 MB RAM.
     - 8 GB of hard disk space.
@@ -11,7 +11,7 @@ The same installation method can be used to install Arch Linux in a real machine
 2. Don't forget to set "enable EFI" on "System" tab.
 3. Run machine.
 
-# Run installation
+## Run installation
 4. When system is ready, change layout to your preference with `loadkeys {layout}`. I use `loadkeys la-latin1`.
 5. Enable Ethernet with `ip link`. Check if it works with `ping google.com`.
 6. Set system clock with `timedatectl set-ntp true`.
@@ -65,10 +65,10 @@ The same installation method can be used to install Arch Linux in a real machine
   - `systemctl enable NetworkManager`.
 28. Exit (`exit`) and shutdown (`shutdown now`).
 
-# Take out disk of VirtualBox
+## Take out disk of VirtualBox
 After installing, you must take out the ISO image from optical disk (like in a real computer). Go to machine configuration, select "Storage" tab, select ISO, press Supr key.
 
-# Run config scripts
+## Run config scripts
 1. Run machine. Wait it to open.
 2. Enter your user and password.
 3. I recommended to take out sudo password limit, otherwise you will have to enter it several times during process:
@@ -83,7 +83,7 @@ After installing, you must take out the ISO image from optical disk (like in a r
 9. Reboot.
 10. Now you are ready to use it!!!
 
-# Notes
+## Notes
 
 1. After rebooting, you will see screen resolution lower than maybe you want it. My config files don't define screen resolution, so you have to add `xrandr --output {actual output} --mode {your desired resolution} &` to the .xprofile file. To see available output, run `xrandr -q`. In VirtualBox, it usually is "Virtual-1".
 2. Take care that this will download all my dotfiles, create my folders, and download my wallpapers. Maybe you don't want my configuration, so you can copy this repository, and modify it!!!
