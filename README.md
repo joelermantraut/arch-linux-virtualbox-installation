@@ -33,17 +33,22 @@ The same installation method can be used to install Arch Linux in a real machine
   - `mount /dev/sda2 /mnt`.
   - `mkdir /mnt/efi`.
   - `mount /dev/sda1 /mnt/efi`.
-10. Finally, we must have root mounted in mnt folder, and the EFI partition reachable through /mnt/efi. Continue installing kernel. Run `pacstrap /mnt base linux linux-firmware base-devel nano`. I have also added some nano text editor.
-11. Generate filesystem file `genfstab -U /mnt >> /mnt/etc/fstab`.
-12. Change root into the new system `arch-chroot /mnt`.
-13. Set the time zone `ln -sf /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime`. "America/Argentina/Buenos_Aires" is which I use. You can list all file in `/usr/share/zoneinfo/` directory to see zones available.
-14. Run hwclock(8) to generate /etc/adjtime `hwclock --systohc`.
-15. Edit `/etc/locale.gen` and uncomment es_ES.UTF-8 UTF-8 or which corresponds to you.
-16. Run `locale-gen`.
-17. Edit `/etc/locale.conf` and add `LANG=es_ES.UTF-8` or which you uncomment before.
-18. Edit `/etc/vconsole.conf` and add `KEYMAP=la-latin1` or which layout you prefer.
-19. Edit `/etc/hostname` and write the PC name you want it to have.
-20. Edit `/etc/hosts` and write this replacing "pcname" with the name your write on step 19:
+10. Finally, we must have root mounted in mnt folder, and the EFI partition reachable through /mnt/efi. Continue installing kernel. Run `pacstrap /mnt base linux linux-firmware base-devel nano reflector`. I have also added some nano text editor.
+11. Run reflector to set the 5 fastest mirrors. Before, backup mirrorlist:
+```
+cp /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.bak
+reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+```
+12. Generate filesystem file `genfstab -U /mnt >> /mnt/etc/fstab`.
+13. Change root into the new system `arch-chroot /mnt`.
+14. Set the time zone `ln -sf /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime`. "America/Argentina/Buenos_Aires" is which I use. You can list all file in `/usr/share/zoneinfo/` directory to see zones available.
+15. Run hwclock(8) to generate /etc/adjtime `hwclock --systohc`.
+16. Edit `/etc/locale.gen` and uncomment es_ES.UTF-8 UTF-8 or which corresponds to you.
+17. Run `locale-gen`.
+18. Edit `/etc/locale.conf` and add `LANG=es_ES.UTF-8` or which you uncomment before.
+19. Edit `/etc/vconsole.conf` and add `KEYMAP=la-latin1` or which layout you prefer.
+20. Edit `/etc/hostname` and write the PC name you want it to have.
+21. Edit `/etc/hosts` and write this replacing "pcname" with the name your write on step 19:
 ```
 127.0.0.1    localhost
 ::1          localhost
@@ -72,16 +77,22 @@ After installing, you must take out the ISO image from optical disk (like in a r
 1. Run machine. Wait it to open.
 2. Enter your user and password.
 3. I recommended to take out sudo password limit, otherwise you will have to enter it several times during process:
-  - `cd /etc/sudoers.d`.
-  - `sudo EDITOR=nano visudo -f "yourname"`.
-  - Inside it, write `Defaults timestamp_timeout=(number)`.
+  - `sudo nano /etc/sudoers.d/{yourname}`.
+  - Inside it, write `Defaults timestamp_timeout=-1`.
   - Exit file.
 5. Now, download repository cloning from Github `git clone https://github.com/joelermantraut/arch-post-installation-script.git/`.
 6. Enter folder, `cd arch-post-installation-script`.
 7. Run setup, `./setup.sh`.
 8. Wait it to finish.
-9. Reboot.
-10. Now you are ready to use it!!!
+9. Set sudo password limit removing file: `sudo rm -r /etc/sudoers.d`
+10. Reboot.
+11. Now you are ready to use it!!!
+
+## Other setup
+1. If you have several disks, you would want to mount them on init. For that:
+    - Run `sudo blkid`, to get disk info. From this take, UUID and TYPE of disks.
+    - Open fstab file: `nano /etc/fstab`.
+    - Add an entry, similar to the other one in it, write UUID, mount-point, type, "auto" (to mount on init), "0", and a number to indicate the order in which disks are mounted.
 
 ## Notes
 
