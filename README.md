@@ -35,10 +35,8 @@ The same installation method can be used to install Arch Linux in a real machine
   - `mount /dev/sda1 /mnt/efi`.
 10. Finally, we must have root mounted in mnt folder, and the EFI partition reachable through /mnt/efi. Continue installing kernel. Run `pacstrap /mnt base linux linux-firmware base-devel nano reflector`. I have also added some nano text editor.
 11. Run reflector to set the 5 fastest mirrors. Before, backup mirrorlist:
-```
-cp /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.bak
-reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-```
+    - `cp /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.bak`
+    - `reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist}`
 12. Generate filesystem file `genfstab -U /mnt >> /mnt/etc/fstab`.
 13. Change root into the new system `arch-chroot /mnt`.
 14. Set the time zone `ln -sf /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime`. "America/Argentina/Buenos_Aires" is which I use. You can list all file in `/usr/share/zoneinfo/` directory to see zones available.
