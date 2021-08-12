@@ -54,8 +54,8 @@ The same installation method can be used to install Arch Linux in a real machine
 ```
 21. Run `passwd` and create a root password.
 22. `useradd -m "yourname"`.
-23. `passwd "yourname`.
-24. `usermod -aG wheel,audio,video,optical,storage,vboxusers,rfkill yourname`.
+23. `passwd "yourname"`.
+24. `usermod -aG wheel,audio,video,optical,storage,vboxusers,rfkill "yourname"`.
 25. We'll install and configure sudo:
   - `pacman -S sudo`.
   - Run `EDITOR=nano visudo` and uncomment line which says `%wheel ALL=(ALL) ALL`.
